@@ -1,0 +1,142 @@
+body {
+  background-color: white;
+  padding: 10px 20px;
+  font-family: Arial, sans-serif;
+}
+.searchbar {
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+input.form-control.mr-2 {
+  background-color: inherit;
+  color: white;
+  border-radius: 25px;
+  padding: 15px;
+  border: none;
+}
+.weather-app {
+  background: url('./Assets/sunshine-clouds-sky-during-morning-background-blue-white-pastel-heaven-soft-focus-lens-flare-sunlight-abstract-blurred-cyan-gradient-peaceful-nature-open-view-out-windows-beautiful-summer-spring.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 670px;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.Present-day{
+  display: flex;
+}
+.tabs{
+  display: flex;
+}
+.nav-tabs .nav-link {
+  color: black;
+  font-weight: 600;
+  /* width: 698px; */
+  margin-top: 30px;
+}
+.nav-tabs .nav-link.active {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-color: transparent;
+  color: white;
+  font-weight: 600;
+  /* width: 718px; */
+}
+.tab-data{
+
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 0px;
+}
+.block {
+  padding: 20px;
+  height: 250px;
+  width: 300px;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: rgba(31, 31, 31, 0.6);
+  color: white;
+  margin: 30px 20px;
+  text-align: center;
+}
+.block .day {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 2px;
+}
+.block .time {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 2px;
+}
+.block img{
+  height: 80px;
+}
+.block .temp {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.weather-display {
+  margin-bottom: 20px;
+}
+
+.weather-display h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.weather-display p {
+  font-size: 1.2em;
+  margin: 5px 0;
+}
+
+.forecast-item {
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.forecast-item h3 {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+
+.forecast-item p {
+  font-size: 1em;
+}
+.top-part-disc{
+  display: flex;
+  background-color: rgba(31, 31, 31, 0.6);
+  border-radius: 10px;
+  padding: 10px 0px;
+  margin: 0px 10px;
+}
+.top-part-disc .disc{
+  text-align: center;
+}
+.top-part{
+  text-align: center;
+  background-color: rgba(31, 31, 31, 0.6);
+  margin: 0px 5px;
+  border-radius: 10px;
+  padding: 10px 0px;
+}
+.top-part-min{
+  width: max-content;
+  background-color: rgba(31, 31, 31, 0.6);
+  margin: 0px 5px;
+  border-radius: 10px;
+  padding: 10px 10px;
+  text-align: center;
+}
+.top-part-min .min-max {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
