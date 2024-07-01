@@ -78,6 +78,7 @@ const WeatherApp = () => {
     <div className="container-fluid weather-app">
       <SearchBar />
       <WeatherDisplay />
+      
       <ul className="nav nav-tabs" id="myTab" role="tablist">
         <li className="nav-item">
           <a

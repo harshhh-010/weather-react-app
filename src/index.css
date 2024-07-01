@@ -16,6 +16,13 @@ input.form-control.mr-2 {
   padding: 15px;
   border: none;
 }
+.city-name {
+  margin-top: 0px;
+  text-align: end;
+  font-size: 22px;
+  font-weight: 700;
+  margin-right: 40px;
+}
 .weather-app {
   background: url('./Assets/1A.jpg') no-repeat center center fixed;
   background-size: cover;
