@@ -5,9 +5,9 @@ export const SET_ERROR = 'SET_ERROR';
 export const SET_LOADING = 'SET_LOADING';
 export const TOGGLE_UNIT = 'TOGGLE_UNIT';
 
-export const setCity = (city) => (
-    { type: SET_CITY, 
-    payload: city });
+export const setCity = (city) => ({
+    type: 'SET_CITY',
+    payload: city,});
 
 export const setWeather = (weather) => (
     { type: SET_WEATHER, 

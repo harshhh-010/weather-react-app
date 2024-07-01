@@ -1,6 +1,6 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setWeather, setForecast, setError, setLoading } from '../Redux/Actions/action';
+import { setWeather, setForecast, setError, setLoading, setCity} from '../Redux/Actions/action';
 import axios from 'axios';
 import SearchBar from './SearchBar';
 import WeatherDisplay from './WeatherDisplay';
@@ -34,11 +34,41 @@ const WeatherApp = () => {
     dispatch(setLoading(false));
   }, [dispatch]);
 
+  const fetchWeatherDataByCoords = useCallback(async (lat, lon, unit) => {
+    dispatch(setLoading(true));
+    try {
+      const apiKey = '8c6ad31fcd9db1911bd8107fce141860';
+      const weatherResponse = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${unit}&appid=${apiKey}`);
+      const forecastResponse = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=${unit}&appid=${apiKey}`);
+      
+      dispatch(setWeather(weatherResponse.data));
+      const dailyForecast = forecastResponse.data.list.filter((item) => item.dt_txt.includes('12:00:00'));
+      dispatch(setForecast(forecastResponse.data.list));
+      dispatch(setError(null));
+      dispatch(setCity(weatherResponse.data.name));
+    } catch (error) {
+      dispatch(setError('Location not found'));
+    }
+    dispatch(setLoading(false));
+  }, [dispatch]);
+
   useEffect(() => {
-    if (city) {
+    if (!city) {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+          fetchWeatherDataByCoords(position.coords.latitude, position.coords.longitude, unit);
+          console.log(position.coords.latitude, position.coords.longitude, unit)
+        }, (error) => {
+          console.error(error);
+          dispatch(setError('Unable to retrieve location'));
+        });
+      } else {
+        dispatch(setError('Geolocation not supported'));
+      }
+    } else {
       fetchWeatherData(city, unit);
     }
-  }, [city, unit, fetchWeatherData]);
+  }, [city, unit, fetchWeatherData, fetchWeatherDataByCoords, dispatch]);
 
   const today = new Date().toISOString().split('T')[0];
   const dailyForecast = forecast.filter((item) => item.dt_txt.includes('12:00:00'));

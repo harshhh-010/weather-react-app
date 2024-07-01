@@ -14,6 +14,7 @@ const SearchBar = () => {
   };
 
   return (
+    
     <form className=" searchbar form-inline justify-content-center mb-5" onSubmit={handleSearch}>
       <input
         type="text"
@@ -22,7 +23,7 @@ const SearchBar = () => {
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
-      <button type="submit" className="btn btn-primary">Search</button>
+      <button type="submit"  className="btn btn-primary">Search</button>
     </form>
   );
 };

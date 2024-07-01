@@ -25,6 +25,7 @@ const WeatherDisplay = () => {
 
   return (
     <>
+    <h1>{weather.main.city}</h1>
     <div className="Present-day container-fluid">
       <div className="top-part-disc col-md-4">
         <img src={getIconUrl(weather.weather[0].icon)} />
